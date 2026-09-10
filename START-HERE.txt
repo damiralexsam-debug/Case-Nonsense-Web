@@ -1,0 +1,57 @@
+CASE: NONSENSE — standalone edition 1.1
+
+This is the complete playable game, including editable JavaScript source,
+the rendering library and music. It does not require ChatGPT or Sites.
+
+PLAY ON YOUR COMPUTER
+1. Extract the entire ZIP into a folder.
+2. If Python 3 is installed, open a terminal in that folder and run:
+   python serve.py
+   (On some systems the command is python3 serve.py or py serve.py.)
+3. Open http://127.0.0.1:8000 in your browser.
+4. Keep the terminal open while playing. Ctrl+C stops it.
+
+The game uses JavaScript modules, so opening index.html by double-clicking
+is not sufficient. Any ordinary local HTTP static server also works.
+Use a modern browser with WebGL 2 and hardware acceleration enabled.
+Click a menu control to enable browser audio; music plays with Ears active.
+
+PUT IT ONLINE WITHOUT CHATGPT
+Upload this ZIP as an HTML game to itch.io. It already has index.html at
+the root, as required. Select click-to-launch, enable fullscreen and use
+a large viewport (1280 x 720 or larger is a good starting point).
+Official guide: https://itch.io/docs/creators/html5
+
+Alternatively upload the extracted contents to any static web host.
+Keep index.html and its companion files together, including vendor/ and
+audio/. Relative paths allow the game to live in a subfolder too.
+No build step, database, API keys, account system or ChatGPT login is needed.
+Choose your host's public visibility setting when you want other people
+to play. The original ChatGPT Sites link has its own access settings.
+
+CONTROLS
+WASD: move. Mouse: look. 1–4: switch sense. E: inspect.
+Q: knock while using Ears. Hold F: lower music to focus on sound.
+Space: stamp / hold to sniff / trace. J: notebook. B: briefing.
+I: scent filter. G: pick up / toss small objects. Esc: pause.
+Touch controls and a compact sense selector are included.
+Settings has separate environmental and music volume controls.
+
+SAVES
+Progress saves in this browser, separately for each website address.
+Progress from the original Sites address will not automatically transfer.
+Clearing browser site data clears its saved progress.
+
+EDITING
+cases.js: cases, observations, suspects and solutions.
+world.js: geometry, movement, interactions and environmental audio.
+perception.js: scent scans, breath and persistent surface marks.
+materials.js: temperature, touch properties and acoustic responses.
+music.js: soundtrack selection and mixing.
+game.js, index.html, style.css: interface, controls and presentation.
+
+CREDITS
+Concept: Hifa Productions. Prototype developed with Codex.
+Music credits and source licenses: audio/CREDITS.txt.
+Three.js license: vendor/LICENSE-three.txt.
+Keep third-party license files with copies of the game.

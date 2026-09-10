@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#091215"><meta name="description" content="Three first-person investigations. See, hear, smell and feel fragments of the truth in CASE: NONSENSE, a solo sensory detective game."><title>CASE: NONSENSE — Investigations Division</title><link rel="stylesheet" href="./style.css"></head>
+<body>
+<canvas id="world" aria-label="First-person investigation environment"></canvas>
+<div class="vignette" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
+<div id="loading"><span class="eyebrow">HIFA PRODUCTIONS</span><h1>CASE: NONSENSE</h1><p>Opening the case files…</p></div>
+<nav id="senses" aria-label="Perception controls"></nav>
+<main id="menu" hidden>
+ <header class="masthead"><span class="brand"><i></i> HIFA PRODUCTIONS</span><span>SOLO EDITION <b>1.1</b></span></header>
+ <div class="menu-caption"><span class="eyebrow">INVESTIGATIONS DIVISION</span><p>Four senses. One incomplete picture.</p></div>
+ <section class="case-selection" aria-label="Choose an investigation"><div class="section-line"><span>SELECT A CASE</span><span id="completion">00 / 03 CLOSED</span></div><div id="case-cards"></div><footer class="menu-footer"><button data-action="guide">Field guide <kbd>?</kbd></button><span>HEADPHONES RECOMMENDED · KEYBOARD + MOUSE</span><button data-action="settings">Settings</button></footer></section>
+</main>
+<div id="hud" hidden>
+ <div class="case-heading"><span id="hud-case" class="eyebrow"></span><span id="room-name">CENTRAL HALL</span></div>
+ <div id="reticle" aria-hidden="true"><i></i></div>
+ <div id="interaction"></div><div id="contact-readout" hidden></div>
+ <div class="hud-bottom"><div><span id="active-label">EYES</span><select id="case-sense" aria-label="Switch active sense"><option>Eyes</option><option>Ears</option><option>Nose</option><option>Feel</option></select><p id="sense-help">Observe visible details.</p></div><div class="hud-actions"><button data-action="notebook"><kbd>J</kbd> Notebook <b id="clue-count">0</b></button><button data-action="brief"><kbd>B</kbd> Briefing</button><button data-action="pause"><kbd>Esc</kbd> Pause</button></div></div>
+ <div id="scent-strip" hidden></div>
+ <div id="focus-gate" hidden><div><span class="eyebrow">INVESTIGATION IN PROGRESS</span><h2>Return to the scene.</h2><p>WASD to move · Mouse to look · E to inspect<br>1–4 switch senses · Space uses your sense · Hold to sniff</p><button class="primary" data-action="resume">Continue investigation</button><button class="text-button" data-action="notebook">Open notebook</button></div></div>
+</div>
+<div id="breath-meter" hidden aria-live="off"><div class="breath-label"><span id="breath-state">HOLD SPACE TO SNIFF</span><span id="breath-detail">READY</span></div><div class="breath-track"><i id="breath-fill"></i></div></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<div id="modal" class="modal-backdrop" hidden><section id="modal-content" class="modal" role="dialog" aria-modal="true" aria-label="Investigation panel"></section></div>
+<div id="mobile-controls" hidden><div id="joystick" aria-label="Movement joystick"><i></i></div><div id="touch-look" aria-label="Drag to look"></div><div class="touch-buttons"><button id="mobile-knock" data-action="knock" hidden>Knock</button><button id="mobile-focus" data-action="focus-listen" hidden>Focus</button><button data-action="interact">Inspect</button><button data-action="sense-action">Use sense</button></div></div>
+<script type="module" src="./game.js"></script>
+</body></html>

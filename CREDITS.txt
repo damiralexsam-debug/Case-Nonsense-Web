@@ -1,0 +1,17 @@
+CASE: NONSENSE — music credits
+
+Moil — Ruskerdax
+https://opengameart.org/content/moil
+Original download: https://opengameart.org/sites/default/files/ruskerdax_-_moil.mp3
+
+Dream 2 Ambience — Marcus Davies / TokyoGeisha
+https://opengameart.org/content/dream-2-ambience
+Original download: https://opengameart.org/sites/default/files/Dream%202%20%28Ambience%29_0.mp3
+
+Both tracks are designated CC0 1.0 on their original artist submission pages.
+https://creativecommons.org/publicdomain/zero/1.0/
+Files are bundled without edits; playback is looped and volume faded in game.
+Retrieved 6 September 2026. Credits are retained for provenance and appreciation.
+
+Environmental sound effects are synthesized by the game using Web Audio.
+Three.js is MIT licensed; see vendor/LICENSE-three.txt.

@@ -1,0 +1,4 @@
+Furniture Kit by Kenney — https://kenney.nl/assets/furniture-kit
+CC0 — https://creativecommons.org/publicdomain/zero/1.0/
+Selected OBJ meshes converted to indexed-free triangles and vertex colors.
+Scaled, positioned and palette-tinted by the game. Retrieved 12 September 2026.

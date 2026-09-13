@@ -4,9 +4,10 @@
 <canvas id="world" aria-label="First-person investigation environment"></canvas>
 <div class="vignette" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
 <div id="loading"><span class="eyebrow">HIFA PRODUCTIONS</span><h1>CASE: NONSENSE</h1><p>Opening the case files…</p></div>
+<p id="menu-sense-help"></p>
 <nav id="senses" aria-label="Perception controls"></nav>
 <main id="menu" hidden>
- <header class="masthead"><span class="brand"><i></i> HIFA PRODUCTIONS</span><span>SOLO EDITION <b>1.1</b></span></header>
+ <header class="masthead"><span class="brand"><i></i> HIFA PRODUCTIONS</span><span>SOLO EDITION <b>1.3</b></span></header>
  <div class="menu-caption"><span class="eyebrow">INVESTIGATIONS DIVISION</span><p>Four senses. One incomplete picture.</p></div>
  <section class="case-selection" aria-label="Choose an investigation"><div class="section-line"><span>SELECT A CASE</span><span id="completion">00 / 03 CLOSED</span></div><div id="case-cards"></div><footer class="menu-footer"><button data-action="guide">Field guide <kbd>?</kbd></button><span>HEADPHONES RECOMMENDED · KEYBOARD + MOUSE</span><button data-action="settings">Settings</button></footer></section>
 </main>
@@ -22,5 +23,13 @@
 <div id="toast" role="status" aria-live="polite"></div>
 <div id="modal" class="modal-backdrop" hidden><section id="modal-content" class="modal" role="dialog" aria-modal="true" aria-label="Investigation panel"></section></div>
 <div id="mobile-controls" hidden><div id="joystick" aria-label="Movement joystick"><i></i></div><div id="touch-look" aria-label="Drag to look"></div><div class="touch-buttons"><button id="mobile-knock" data-action="knock" hidden>Knock</button><button id="mobile-focus" data-action="focus-listen" hidden>Focus</button><button data-action="interact">Inspect</button><button data-action="sense-action">Use sense</button></div></div>
-<script type="module" src="./game.js"></script>
+<input type="file" id="progress-file" accept="application/json,.json" hidden>
+<script type="module">
+import('./game.js').catch(error=>{
+ console.error(error);
+ const panel=document.getElementById('loading');panel.hidden=false;
+ panel.innerHTML='<span class="eyebrow">CASE: NONSENSE</span><h1>The case files could not open.</h1><p>Reload to try again. If you just updated the website, check that every replacement file and folder was uploaded.</p><button class="primary" id="retry-load">Reload game</button>';
+ document.getElementById('retry-load').onclick=()=>location.reload();
+});
+</script>
 </body></html>

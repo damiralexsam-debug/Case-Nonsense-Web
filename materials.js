@@ -24,7 +24,7 @@ export function describeContact(p){return [temperatureName(p.temperature),p.text
 export function assignMaterials(meshes,prop,caseId){
  const tableKinds=['paper','book','cup','radio','cloth','plant','bottles','mic'];
  const kindMap={paper:'paper',book:'paper',cup:'ceramic',rack:'cloth',radio:'metal',vent:'metal',oven:'metal',cloth:'cloth',sack:'cloth',trolley:'metal',window:'glass',bottles:'glass',sink:'metal',generator:'metal',mic:'metal',console:'metal',award:'metal'};
- meshes.forEach((mesh,i)=>{const support=tableKinds.includes(prop.kind)&&i<5;let base=support?(i===0?'wood':'metal'):(kindMap[prop.kind]||'wood');if(prop.kind==='rack'&&(i<3||i===6))base='metal';if(prop.kind==='window'&&[0,2,3].includes(i))base='metal';mesh.userData.physical={...BASE[base],caseId,propId:prop.id,support};mesh.userData.part=i;});
+ meshes.forEach((mesh,i)=>{const support=mesh.userData.fixture||(tableKinds.includes(prop.kind)&&i<5);let base=support?(i===0?'wood':'metal'):(kindMap[prop.kind]||'wood');if(prop.kind==='rack'&&(i<3||i===6))base='metal';if(prop.kind==='window'&&[0,2,3].includes(i))base='metal';mesh.userData.physical={...BASE[base],caseId,propId:prop.id,support};mesh.userData.part=i;});
 }
 export function contactAt(hit){const mesh=hit.object,p={...(mesh.userData.physical||BASE.stone)},id=p.propId,i=mesh.userData.part,y=hit.point.y;if(p.support)return p;
  if(p.caseId==='last-service'){

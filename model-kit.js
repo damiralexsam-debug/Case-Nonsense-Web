@@ -10,6 +10,6 @@ export function furnitureGeometry(name){
 }
 export function applyFurniture(mesh,name,position,size){
  mesh.geometry=furnitureGeometry(name);mesh.position.copy(position);mesh.scale.set(...size);
- mesh.material=new THREE.MeshStandardMaterial({vertexColors:true,color:0xbbb5a6,roughness:.86,metalness:.06});
+ mesh.material=new THREE.MeshStandardMaterial({vertexColors:true,color:0xbbb5a6,roughness:.86,metalness:.06,side:THREE.DoubleSide});
  mesh.userData.eyeMaterial=mesh.material;mesh.userData.model=name;mesh.updateMatrixWorld(true);return mesh;
 }

@@ -1,3 +1,4 @@
+import {cleanLive} from './live-case.js';
 import {CASES} from './cases.js';
 
 export function matchesEvidence(e,query){
@@ -17,7 +18,7 @@ export function readProgressFile(text){
   const ids=new Set(c.objects.flatMap(o=>o.observations.map(e=>e.id))),objects=new Set(c.objects.map(o=>o.id));
   const keep=(values,valid)=>[...new Set((Array.isArray(values)?values:[]).filter(v=>typeof v==='string'&&valid.has(v)))];
   const evidence=keep(p.evidence,ids),recorded=new Set(evidence);
-  result[c.id]={evidence,opened:keep(p.opened,objects),deductions:p.deductions.slice(0,200).filter(d=>d&&typeof d.text==='string').map(d=>({text:d.text.slice(0,1000),evidence:keep(d.evidence,recorded)})),notes:typeof p.notes==='string'?p.notes.slice(0,6000):'',draft:typeof p.draft==='string'?p.draft.slice(0,1000):'',selected:keep(p.selected,recorded),hints:Math.max(0,Math.min(3,Number.isInteger(p.hints)?p.hints:0)),completed:p.completed===true,attempts:[]};
+  result[c.id]={evidence,opened:keep(p.opened,objects),deductions:p.deductions.slice(0,200).filter(d=>d&&typeof d.text==='string').map(d=>({text:d.text.slice(0,1000),evidence:keep(d.evidence,recorded)})),notes:typeof p.notes==='string'?p.notes.slice(0,6000):'',draft:typeof p.draft==='string'?p.draft.slice(0,1000):'',selected:keep(p.selected,recorded),hints:Math.max(0,Math.min(3,Number.isInteger(p.hints)?p.hints:0)),completed:p.completed===true,live:cleanLive(p.live),attempts:[]};
  }
  if(!Object.keys(result).length)throw new Error('There are no recognized case files in this backup.');
  return result;

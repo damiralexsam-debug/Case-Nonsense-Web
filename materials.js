@@ -23,10 +23,10 @@ export const temperatureName=t=>t<12?'cold':t<19?'cool':t<25?'neutral':t<33?'fai
 export function describeContact(p){return [temperatureName(p.temperature),p.texture,p.hardness,p.wetness||'dry',p.viscosity,p.sticky?'tacky':null,p.vibration?'fine vibration':null,p.sharp?'sharp edge':null,p.movement?'slight movement under pressure':null].filter(Boolean).join(' · ');}
 export function assignMaterials(meshes,prop,caseId){
  const tableKinds=['paper','book','cup','radio','cloth','plant','bottles','mic'];
- const kindMap={paper:'paper',book:'paper',cup:'ceramic',rack:'cloth',radio:'metal',vent:'metal',oven:'metal',cloth:'cloth',sack:'cloth',trolley:'metal',window:'glass',bottles:'glass',sink:'metal',generator:'metal',mic:'metal',console:'metal',award:'metal'};
+ const kindMap={armchair:'cloth',bench:'cloth',bunk:'cloth',covered:'cloth',fragment:'cloth',tracks:'stone',lever:'metal',valve:'metal',fusebox:'metal',bulkhead:'metal',cashcase:'metal',toolroll:'cloth',utensils:'wood',ticket:'paper',paper:'paper',book:'paper',cup:'ceramic',rack:'cloth',radio:'metal',vent:'metal',oven:'metal',cloth:'cloth',sack:'cloth',trolley:'metal',window:'glass',bottles:'glass',sink:'metal',generator:'metal',mic:'metal',console:'metal',award:'metal'};
  meshes.forEach((mesh,i)=>{const support=mesh.userData.fixture||(tableKinds.includes(prop.kind)&&i<5);let base=support?(i===0?'wood':'metal'):(kindMap[prop.kind]||'wood');if(prop.kind==='rack'&&(i<3||i===6))base='metal';if(prop.kind==='window'&&[0,2,3].includes(i))base='metal';mesh.userData.physical={...BASE[base],caseId,propId:prop.id,support};mesh.userData.part=i;});
 }
-export function contactAt(hit){const mesh=hit.object,p={...(mesh.userData.physical||BASE.stone)},id=p.propId,i=mesh.userData.part,y=hit.point.y;if(p.support)return p;
+export function contactAt(hit){const mesh=hit.object,p={...(mesh.userData.physical||BASE.stone)},id=p.propId,i=mesh.userData.part,y=hit.point.y;if(mesh.userData.seatCenter){const c=mesh.userData.seatCenter,edge=Math.min(1,Math.hypot(hit.point.x-c.x,hit.point.z-c.z)/.7);p.temperature=20+(p.temperature-20)*(1-edge*.8);p.texture=edge<.45?'compressed fabric':'loose fabric';}if(p.support)return p;
  if(p.caseId==='last-service'){
   if(id==='cup')p.temperature=i===7?21:29;
   if(id==='oven'){p.temperature=i===2||i===3?17:39;}

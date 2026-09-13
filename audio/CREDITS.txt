@@ -1,0 +1,33 @@
+CASE: NONSENSE — soundtrack 1.3
+
+Dances and Dames
+Kevin MacLeod (incompetech.com)
+https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100595
+
+Night on the Docks - Sax
+Kevin MacLeod (incompetech.com)
+https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100137
+
+Cool Vibes
+Kevin MacLeod (incompetech.com)
+https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100863
+
+All three tracks licensed under Creative Commons: By Attribution 4.0 License
+https://creativecommons.org/licenses/by/4.0/
+Licensing source: https://incompetech.com/music/royalty-free/licenses/
+Original MP3 recordings bundled unchanged. The game applies playback fades and
+repetition. Spectrum analysis drives visual sound waves in the menu. No artist
+endorsement is implied. Retrieved 12 September 2026.
+
+The previous tracks (including Mystery by Eason9) are retired from the score.
+Environmental case sounds are synthesized by the game using Web Audio.
+
+Furniture: Kenney Furniture Kit, CC0.
+https://kenney.nl/assets/furniture-kit
+See models/CREDITS.txt and models/Kenney-LICENSE.txt.
+
+Typography: Newsreader and Source Sans 3, SIL Open Font License 1.1.
+https://github.com/google/fonts/tree/main/ofl/newsreader
+https://github.com/google/fonts/tree/main/ofl/sourcesans3
+Original font binaries bundled unchanged. Licenses in fonts/*-OFL.txt.
+Three.js is MIT licensed; see vendor/LICENSE-three.txt.

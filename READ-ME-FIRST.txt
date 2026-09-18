@@ -1,0 +1,11 @@
+CASE: NONSENSE — 1.4 REPLACEMENT FILES
+
+Extract these files into your existing game folder (the folder containing index.html), allowing replacement. Add the included audio/sfx folder. Keep all other existing files, especially vendor, models, fonts, the music files and unchanged JS modules.
+
+Serve the game over HTTP as before, then refresh without cached files. Do not clear browser storage: the train and dock notebooks are compatible. The mansion is a new story with a fresh case file; the old entry remains stored.
+
+Included changes: 18-room / three-storey manor, hidden intruder escape, expanded harbour, longer slimmer train, articulated characters, two-observation verdicts with actionable feedback, downloaded sounds, and atmosphere effects.
+
+Sound sources and licenses are in audio/sfx/CREDITS.md. Extra audio is also supplied in a separate sound-effects ZIP.
+
+Verification: collision/reachability, case verdict and live progression checks. The review browser has WebGL disabled, so screenshots use actual meshes in a labelled software geometry viewer. Final WebGL lighting, performance and an end-to-end browser playthrough could not be verified there.

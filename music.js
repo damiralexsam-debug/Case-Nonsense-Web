@@ -4,7 +4,7 @@ export const TRACKS={
  docks:{file:'./audio/night-on-the-docks.mp3',title:'Night on the Docks — Sax',artist:'Kevin MacLeod',source:'https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100137',license:'CC BY 4.0'},
  vibes:{file:'./audio/cool-vibes.mp3',title:'Cool Vibes',artist:'Kevin MacLeod',source:'https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100863',license:'CC BY 4.0'}
 };
-const PLAYLISTS={menu:['dances','docks','vibes'],blackthorn:['dances','vibes'],'last-car':['vibes','docks'],'pier-pressure':['docks','vibes']};
+const PLAYLISTS={menu:['dances','docks','vibes'],'blackthorn-hunt':['dances','vibes'],'last-car':['vibes','docks'],'pier-pressure':['docks','vibes']};
 export class Score {
  constructor(world){this.world=world;this.volume=.3;this.selection='auto';this.track=null;this.wanted=null;this.level=0;this.duckUntil=0;this.failed=new Set();this.context=null;this.index=0;}
  unlock(){if(this.node)return;const ac=this.world.audio;if(!ac)return;this.element=new Audio();this.element.loop=false;this.element.preload='auto';this.node=ac.createMediaElementSource(this.element);this.gain=ac.createGain();this.gain.gain.value=0;if(ac.createAnalyser){this.analyser=ac.createAnalyser();this.analyser.fftSize=2048;this.analyser.smoothingTimeConstant=.25;this.bins=new Uint8Array(this.analyser.frequencyBinCount);this.detector=new BeatDetector();this.node.connect(this.analyser);this.analyser.connect(this.gain);}else this.node.connect(this.gain);this.gain.connect(ac.destination);this.element.addEventListener('error',()=>this.report());this.element.addEventListener('ended',()=>{if(TRACKS[this.selection])this.element.currentTime=0;else this.next();});}
